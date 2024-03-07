@@ -2,7 +2,7 @@
 </head>
 
 <body>
-<script src="/script/bundle.js"></script>
+<script src="/script/bundle.js"></script> <script src="/script/index.cjs"></script> <script src="/deps.js"></script>
 <script src="/script/config.js"></script>
 <script>
 function encodeUrl(str){
@@ -13,6 +13,8 @@ function encodeUrl(str){
 window.navigator.serviceWorker.register('/sw.js', {
     scope: /*__uv$config.prefix*/__uv$config.prefix
 }).then(() => {
+  let Beartag = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/meta";
+  BareMux.SetTransport("EpxMod.EpoxyClient", { wisp: Beartag });
     console.log("Service worker (for Quick Link) registered.");
 });
 

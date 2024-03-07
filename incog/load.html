@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script src="/script/bundle.js"></script>
+    <script src="/script/bundle.js"></script> <script src="/script/index.cjs"></script> <script src="/deps.js"></script>
     <script src="/script/config.js"></script>
     <style>
         @font-face {
@@ -78,6 +78,8 @@
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.getRegistration("/sw.js").then(async worker => {
                 if(!worker) await navigator.serviceWorker.register('/sw.js', { scope: __uv$config.prefix });
+                let Beartag = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/meta";
+  BareMux.SetTransport("EpxMod.EpoxyClient", { wisp: Beartag });
                 let url = atob(decodeURIComponent(window.location.hash.slice(1)));
                 let search = engines[localStorage.getItem('incog||search') || 'google'];
                 if (url) {

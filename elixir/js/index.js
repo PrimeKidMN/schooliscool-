@@ -71,6 +71,8 @@ function openURL(url) {
       scope: __uv$config.prefix,
     })
     .then(() => {
+        let Beartag = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/meta";
+        BareMux.SetTransport("EpxMod.EpoxyClient", { wisp: Beartag });
       if (!isUrl(url)) url = getSearchEngineURL() + url;
       else if (!(url.startsWith("https://") || url.startsWith("http://")))
         url = "http://" + url;

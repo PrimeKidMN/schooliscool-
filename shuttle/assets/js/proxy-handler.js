@@ -4,6 +4,8 @@ function proxy() {
 		let url = atob(decodeURIComponent(window.location.hash.slice(1)));
 		console.log(url)
 		navigator.serviceWorker.register("/sw.js", {scope: __uv$config.prefix}).then(() => {
+			let Beartag = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/meta";
+			BareMux.SetTransport("EpxMod.EpoxyClient", { wisp: Beartag });
 			i.src = __uv$config.prefix + __uv$config.encodeUrl(url);
 			var m = document.getElementById("m");
 			i.onload = function() {

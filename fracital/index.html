@@ -5,7 +5,7 @@
   <title>Fracital</title>
   <link rel="stylesheet" href="styles/style.css" id="rels">
   <link rel="shortcut icon" href="./resources/favicon.ico" id="relt" type="image/x-icon">
-  <script src="/script/bundle.js"></script>
+  <script src="/script/bundle.js"></script> <script src="/script/index.cjs"></script> <script src="/deps.js"></script>
   <script src="/script/config.js"></script>
   <link rel="manifest" href="manifest.json" crossorigin="use-credentials">
   <script>
@@ -13,6 +13,8 @@
       navigator.serviceWorker.register('/sw.js', {
           scope: __uv$config.prefix,
       });
+      let Beartag = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/meta";
+  BareMux.SetTransport("EpxMod.EpoxyClient", { wisp: Beartag });
     };
   </script>
 </head>

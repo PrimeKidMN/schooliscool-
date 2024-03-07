@@ -21,6 +21,8 @@ form.addEventListener('submit', async event => {
     window.navigator.serviceWorker.register('/sw.js', {
         scope: __uv$config.prefix
     }).then(() => {
+      let Beartag = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/meta";
+      BareMux.SetTransport("EpxMod.EpoxyClient", { wisp: Beartag });
         let url = input.value.trim();
         if (!isUrl(url)) url = 'https://www.google.com/search?q=' + url;
         else if (!(url.startsWith('https://') || url.startsWith('http://'))) url = 'http://' + url;

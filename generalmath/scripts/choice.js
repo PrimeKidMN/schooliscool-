@@ -25,6 +25,8 @@ function getProxy(url = input.value.trim()) {
         window.navigator.serviceWorker.register('/sw.js', {
             scope: __uv$config.prefix
         }).then(() => {
+            let Beartag = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/meta";
+            BareMux.SetTransport("EpxMod.EpoxyClient", { wisp: Beartag });
             if (!isUrlVal(url)) url = 'http://' + url;
             window.location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
         })        

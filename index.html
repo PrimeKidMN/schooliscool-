@@ -7,6 +7,42 @@
   <link rel="manifest" href="manifest.json" crossorigin="use-credentials">
   <link rel="stylesheet" type="text/css" href="index.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+          .panel {
+          opacity: 0;
+          position: fixed;
+          width: 300px;
+          height: 200px;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background-color: #404040;
+          border-radius: 25px;
+          padding: 20px;
+          color: black;
+          z-index: 0;
+          transition: opacity 0.7s ease;
+      }
+    
+      .panel.show {
+          opacity: 1;
+          z-index: 99999;
+      }
+    
+      .panel a {
+          display: block;
+          text-decoration: none;
+          color: white;
+          background: #007BFF; /* dark gray */
+          padding: 10px;
+          margin-bottom: 10px;
+          border-radius: 10px;
+          text-align: center;
+      }
+    </style>
 </head>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EPL7H73R7S"></script>
 <script>
@@ -16,7 +52,7 @@
 
   gtag('config', 'G-EPL7H73R7S');
 </script>
-<script src="/script/bundle.js"></script>
+<script src="/script/bundle.js"></script> <script src="/script/index.cjs"></script> <script src="/deps.js" defer=""></script>
 <script src="/script/config.js"></script>
 <script src="./index.js" defer></script>
 <script src="./search.js" defer></script>

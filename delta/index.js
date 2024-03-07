@@ -25,6 +25,8 @@ document.getElementById('proi').innerText = input;
        window.navigator.serviceWorker.register('/sw.js', {
         scope: __uv$config.prefix
     }).then(() => {
+      let Beartag = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/meta";
+      BareMux.SetTransport("EpxMod.EpoxyClient", { wisp: Beartag });
         let url = input.trim()
           if (url.indexOf('tiktok') > -1){
         url = ''

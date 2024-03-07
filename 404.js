@@ -114,4 +114,29 @@ particlesJS("particles-js", {
       window.location.reload();
     }, 100);
   }
+  if (location.href.includes(__uv$config.prefix)) {
+    registerSW();
+  }
+  async function registerSW() {
+    if (
+      location.protocol !== "https:" &&
+      !swAllowedHostnames.includes(location.hostname)
+    )
+      throw new Error("Service workers cannot be registered without https.");
   
+    if (!navigator.serviceWorker)
+      throw new Error("Your browser doesn't support service workers.");
+  
+    // Unregister all service workers
+    const registrations = await navigator.serviceWorker.getRegistrations();
+    for (let registration of registrations) {
+      await registration.unregister();
+    }
+  
+    // Register the new service worker
+    await navigator.serviceWorker.register("/sw.js", {
+      scope: __uv$config.prefix,
+    });
+    let Beartag = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/meta";
+    BareMux.SetTransport("EpxMod.EpoxyClient", { wisp: Beartag });
+  }

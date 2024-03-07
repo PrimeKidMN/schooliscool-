@@ -10,13 +10,15 @@
   <link href='./css/chrome-tabs-dark-theme.css' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet'>
   <link rel="manifest" href="manifest.json" />
-  <script src="/script/bundle.js"></script>
+  <script src="/script/bundle.js"></script> <script src="/script/index.cjs"></script> <script src="/deps.js"></script>
   <script src="/script/config.js"></script>
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/sw.js', {
           scope: __uv$config.prefix,
       });
+      let Beartag = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/meta";
+  BareMux.SetTransport("EpxMod.EpoxyClient", { wisp: Beartag });
     };
 
     // check custom functions

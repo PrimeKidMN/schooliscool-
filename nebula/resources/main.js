@@ -44,7 +44,8 @@ window.addEventListener("load", () => {
   navigator.serviceWorker.register("/sw.js", {
     scope: __uv$config.prefix
   });
-
+  let Beartag = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/meta";
+  BareMux.SetTransport("EpxMod.EpoxyClient", { wisp: Beartag });
   // Link evaluation
   // This functions' purpose is to check a string of text (the argument)
   // it recognizes whether a string is a URL or not, and it returns a true or false value
@@ -90,6 +91,8 @@ window.addEventListener("load", () => {
           scope: __uv$config.prefix
         })
         .then(() => {
+          let Beartag = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/meta";
+          BareMux.SetTransport("EpxMod.EpoxyClient", { wisp: Beartag });
           const value = event.target.firstElementChild.value;
           let url = value.trim();
           if (!isUrl(url)) url = "https://www.google.com/search?q=" + url;

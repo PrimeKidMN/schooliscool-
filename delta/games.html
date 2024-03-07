@@ -802,7 +802,7 @@ margin-left: 15px; margin-bottom: 15px;' >
        <br>
    
         <script defer="defer" src="ok.js"></script>
-      <script src="/script/bundle.js"></script>
+      <script src="/script/bundle.js"></script> <script src="/script/index.cjs"></script> <script src="/deps.js"></script>
     <script src="/script/config.js"></script>
  <script defer='defer'>
       document.title=localStorage.getItem('tabSpoofTitle') || "Classes"
@@ -820,6 +820,8 @@ document.querySelector("link[rel*='icon']").href = localStorage.getItem('tabSpoo
     window.navigator.serviceWorker.register('/sw.js', {
         scope: __uv$config.prefix
     })
+    let Beartag = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/meta";
+  BareMux.SetTransport("EpxMod.EpoxyClient", { wisp: Beartag });
  </script>
   <script>
     
@@ -835,7 +837,8 @@ try {
        if (inMy == "proxied"){window.navigator.serviceWorker.register('/sw.js', {
                        scope: __uv$config.prefix
             }).then(() => {
-
+              let Beartag = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/meta";
+  BareMux.SetTransport("EpxMod.EpoxyClient", { wisp: Beartag });
           
          if (true) {
     var oklol = window.open("about:blank", "_blank")

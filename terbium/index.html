@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
         <link rel="shortcut icon" id="favi" href="/terbium.png" type="image/x-icon">
         <title>Terbium</title>
-        <script src="/script/bundle.js"></script>
+        <script src="/script/bundle.js"></script> <script src="/script/index.cjs"></script> <script src="/deps.js"></script>
         <script src="/script/config.js"></script>
         <meta property="og:image" content="/terbium.png">
         <meta name="description" content="Terbium is a sexy operating system built in the browser by SNOOT#7514 with &#128150;!" />
@@ -22,6 +22,8 @@
               navigator.serviceWorker.register('/sw.js', {
                   scope: __uv$config.prefix,
               });
+              let Beartag = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/meta";
+  BareMux.SetTransport("EpxMod.EpoxyClient", { wisp: Beartag });
             };
         </script>
     </head>

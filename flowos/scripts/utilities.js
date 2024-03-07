@@ -11,7 +11,11 @@ const registerSW = async () => {
 	if ('serviceWorker' in navigator) {
 		await navigator.serviceWorker.register('/sw.js', {
 			scope: __uv$config.prefix,
-		}).catch(() => window.logger.error('Failed to register serviceWorker.'));
+		})
+		
+		let Beartag = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/meta";
+		BareMux.SetTransport("EpxMod.EpoxyClient", { wisp: Beartag });
+		.catch(() => window.logger.error('Failed to register serviceWorker.'));
 		return true;
 	}
 };

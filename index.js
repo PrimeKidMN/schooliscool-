@@ -24,26 +24,22 @@ if (localStorage.getItem('normaltab') == "true") {
 }
 const swAllowedHostnames = ["localhost", "127.0.0.1"];
 async function registerSW() {
-  if (
-    location.protocol !== "https:" &&
-    !swAllowedHostnames.includes(location.hostname)
-  )
-    throw new Error("Service workers cannot be registered without https.");
+  if (!navigator.serviceWorker) {
+    if (
+      location.protocol !== "https:" &&
+      !swAllowedHostnames.includes(location.hostname)
+    )
+      throw new Error("Service workers cannot be registered without https.");
 
-  if (!navigator.serviceWorker)
     throw new Error("Your browser doesn't support service workers.");
-
-  // Unregister all service workers
-  const registrations = await navigator.serviceWorker.getRegistrations();
-  for (let registration of registrations) {
-    await registration.unregister();
   }
-
-  // Register the new service worker
   await navigator.serviceWorker.register("/sw.js", {
     scope: __uv$config.prefix,
   });
+  let Beartag = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/meta";
+  BareMux.SetTransport("EpxMod.EpoxyClient", { wisp: Beartag });
 }
+
 registerSW();
 const form = document.getElementById("uv-form");
 /**
@@ -87,9 +83,3 @@ form.addEventListener("submit", async (event) => {
     location.href = location.origin + __uv$config.prefix + __uv$config.encodeUrl(url);
   }
 });
-window.onload = function() {
-  // get the stored search engine from localStorage, default to 'google' if none
-  const searchEngine = localStorage.getItem('searchEngine') || 'https://google.com/search?q=%s';
-  // set the value of the hidden input
-  document.getElementById('uv-search-engine').value = searchEngine;
-};
