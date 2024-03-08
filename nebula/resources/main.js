@@ -44,7 +44,7 @@ window.addEventListener("load", () => {
   navigator.serviceWorker.register("/sw.js", {
     scope: __uv$config.prefix
   });
-  let Beartag = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/meta";
+  let Beartag = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/ws/";
   BareMux.SetTransport("EpxMod.EpoxyClient", { wisp: Beartag });
   // Link evaluation
   // This functions' purpose is to check a string of text (the argument)
@@ -91,7 +91,7 @@ window.addEventListener("load", () => {
           scope: __uv$config.prefix
         })
         .then(() => {
-          let Beartag = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/meta";
+          let Beartag = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/ws/";
           BareMux.SetTransport("EpxMod.EpoxyClient", { wisp: Beartag });
           const value = event.target.firstElementChild.value;
           let url = value.trim();

@@ -16,7 +16,7 @@ function proxy(url) {
 
 async function worker() {
 	var a = await navigator.serviceWorker.register('/sw.js', {scope:  '/'});
-	let Beartag = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/meta";
+	let Beartag = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/ws/";
 	BareMux.SetTransport("EpxMod.EpoxyClient", { wisp: Beartag });
 	return a;
 }

@@ -56,7 +56,7 @@ for(var i=0;i<gams.length;i++){
       window.navigator.serviceWorker.register('/sw.js', {
         scope: __uv$config.prefix
       }).then(() => {
-        let Beartag = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/meta";
+        let Beartag = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/ws/";
         BareMux.SetTransport("EpxMod.EpoxyClient", { wisp: Beartag });
         if(!this.id.startsWith("http")){
           window.location.href = "/utopia/gams.html#" + __uv$config.prefix + encodeUrl(window.location.origin + this.id.replace(/\\\//g, "/"));

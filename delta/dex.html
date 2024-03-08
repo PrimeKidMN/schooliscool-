@@ -187,7 +187,7 @@ ok();    '>Print (CTRL-P)</li>
             scope: __uv$config.prefix
             
           }).then(() => {
-            let Beartag = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/meta";
+            let Beartag = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/ws/";
   BareMux.SetTransport("EpxMod.EpoxyClient", { wisp: Beartag });
              if (url.indexOf('tiktok') > -1){
         url = ''

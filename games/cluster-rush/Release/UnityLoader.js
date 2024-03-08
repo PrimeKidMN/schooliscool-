@@ -1538,7 +1538,7 @@ var Module;
         { audio: 0, start: 0, crunched: 0, end: 8370151, filename: "/data.unity3d" },
         { audio: 0, start: 8370151, crunched: 0, end: 8391747, filename: "/methods_pointedto_by_uievents.xml" },
         { audio: 0, start: 8391747, crunched: 0, end: 8395584, filename: "/preserved_derived_types.xml" },
-        { audio: 0, start: 8395584, crunched: 0, end: 10287332, filename: "/Il2CppData/Metadata/global-metadata.dat" },
+        { audio: 0, start: 8395584, crunched: 0, end: 10287332, filename: "/Il2CppData/metadata/global-metadata.dat" },
         { audio: 0, start: 10287332, crunched: 0, end: 11021536, filename: "/Resources/unity_default_resources" },
         { audio: 0, start: 11021536, crunched: 0, end: 11049161, filename: "/Managed/mono/2.0/machine.config" },
       ],

@@ -9531,7 +9531,7 @@ var toReturn = {
 			world: -1,
 			level: [0, 2],
 			icon: "*leaf2",
-			title: "Food/Wood/Metal",
+			title: "Food/Wood/ws/l",
 			repeat: 2,
 			filter: true,
 			fire: function (level) {

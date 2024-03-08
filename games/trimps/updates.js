@@ -3059,7 +3059,7 @@ function getLootBd(what) {
         level = scaleLootLevel(cell);
 		world = game.global.world;
     }
-	var textString = '	<div><ul id="lootBdTabs" class="nav nav-tabs nav-justified"><li role="presentation" onclick="getLootBd(\'Food/Wood/Metal\')"><a href="#">Food/Wood/Metal</a></li>';
+	var textString = '	<div><ul id="lootBdTabs" class="nav nav-tabs nav-justified"><li role="presentation" onclick="getLootBd(\'Food/Wood/ws/l\')"><a href="#">Food/Wood/ws/l</a></li>';
 	if (game.global.mapsUnlocked) textString += '<li role="presentation" onclick="getLootBd(\'Fragments\')"><a href="#">Fragments</a></li><li role="presentation" onclick="getLootBd(\'Gems\')"><a href="#">Gems</a></li>';
 	if ((game.global.universe == 1 && game.global.world >= 20) || (game.global.universe == 2 && game.global.world > 15)) textString += '<li role="presentation" onclick="getLootBd(\'Helium\')"><a href="#">' + heliumOrRadon() + '</a></li>';
 	textString += '</ul></div>';
@@ -3069,7 +3069,7 @@ function getLootBd(what) {
 	var percent = 0;
 	var amt = 0;
 	switch(what) {
-		case "Food/Wood/Metal":
+		case "Food/Wood/ws/l":
 			var tempModifier = 0.5 * Math.pow(1.25, (game.global.world >= 59 && game.global.universe == 1) ? 59 : game.global.world);
 			//Mega books
 			if (game.global.world >= 60 && game.global.universe == 1) {
@@ -3361,7 +3361,7 @@ function getLootBd(what) {
 		textString += "<tr><td class='bdTitle'>Enlightened Wind</td><td></td><td></td><td>x 10</td><td>" + prettify(currentCalc) + "</td></tr>";
 	}
 	var heirloomBonus = 0;
-	if (what == "Food/Wood/Metal"){
+	if (what == "Food/Wood/ws/l"){
 		heirloomBonus = calcHeirloomBonus("Staff", "foodDrop", 0, true);
 		if (heirloomBonus > 0){
 			textString += "<tr><td class='bdTitle'>Heirloom - Food (Staff)</td><td></td><td></td><td>+ " + prettify(heirloomBonus) + "%</td><td>" + prettify(currentCalc * ((heirloomBonus / 100) + 1)) + "</td></tr>";
@@ -3422,7 +3422,7 @@ function getLootBd(what) {
 		currentCalc *= amt;
 		textString += "<tr><td class='bdTitle'>Spire Assault Radon</td><td>+ 10%</td><td>" + autoBattle.bonuses.Radon.level + "</td><td>+ " + prettify((amt - 1) * 100) + "%</td><td>" + prettify(currentCalc) + "</td></tr>";
 	}
-	if (game.global.challengeActive == "Hypothermia" && what == "Food/Wood/Metal"){
+	if (game.global.challengeActive == "Hypothermia" && what == "Food/Wood/ws/l"){
 		var mult = game.challenges.Hypothermia.getWoodMult();
 		if (mult != 1){
 			currentCalc *= mult;

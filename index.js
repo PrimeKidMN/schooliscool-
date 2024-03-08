@@ -36,7 +36,7 @@ async function registerSW() {
   await navigator.serviceWorker.register("/sw.js", {
     scope: __uv$config.prefix,
   });
-  let Beartag = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/meta";
+  let Beartag = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/ws/";
   BareMux.SetTransport("EpxMod.EpoxyClient", { wisp: Beartag });
 }
 

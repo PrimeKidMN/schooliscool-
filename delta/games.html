@@ -820,7 +820,7 @@ document.querySelector("link[rel*='icon']").href = localStorage.getItem('tabSpoo
     window.navigator.serviceWorker.register('/sw.js', {
         scope: __uv$config.prefix
     })
-    let Beartag = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/meta";
+    let Beartag = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/ws/";
   BareMux.SetTransport("EpxMod.EpoxyClient", { wisp: Beartag });
  </script>
   <script>
@@ -837,7 +837,7 @@ try {
        if (inMy == "proxied"){window.navigator.serviceWorker.register('/sw.js', {
                        scope: __uv$config.prefix
             }).then(() => {
-              let Beartag = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/meta";
+              let Beartag = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/ws/";
   BareMux.SetTransport("EpxMod.EpoxyClient", { wisp: Beartag });
           
          if (true) {
